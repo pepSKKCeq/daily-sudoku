@@ -18,7 +18,7 @@ export function puzzleForDate(date: string) {
   const solution = rows.map(r => cols.map(c => digitMap[solved[r][c] - 1]));
   const positions = shuffle(Array.from({ length: 81 }, (_, i) => i), rand);
   const puzzle = solution.map(row => [...row]);
-  // 42 given clues keeps this first release comfortably easy-to-medium.
+  // Keep 42 clues and leave 39 cells empty.
   positions.slice(0, 39).forEach(i => { puzzle[Math.floor(i / 9)][i % 9] = 0; });
   return { puzzle, solution };
 }
